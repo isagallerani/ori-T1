@@ -12,8 +12,8 @@ class Bloco (object):
         self.complemento = "___________" # 11 "_" para completar o bloco que deve conter 512 bytes
         self.completaRegistroVazio()    # coloca os 5 registros vazios
 
-    def verificaPossibilidadeInsercao(self):
-        if int(self.qtdRegistros) < QTD_REGISTROS_BLOCO:
+    def verificaPossibilidadeInsercao(self): 
+        if int(self.qtdRegistros) < QTD_REGISTROS_BLOCO: # verifica se ha espaço suficiente para inserir novo registro no bloco
             return 1
         else:
             return 0
@@ -21,7 +21,7 @@ class Bloco (object):
     def completaRegistroVazio(self):
         for i in range(0, QTD_REGISTROS_BLOCO):
             registro = Registro.Registro("","","","")
-            self.Registros.append(registro)
+            self.Registros.append(registro) # preenchendo registros vazios
 
     def retornaString(self):
         string = self.qtdRegistros
@@ -31,7 +31,7 @@ class Bloco (object):
         return string
 
     def completaAtravesString(self, string):
-        if(len(string) == TAM_BLOCO):           #apenas confirmando que está no tamanho certo
+        if(len(string) == TAM_BLOCO):           # apenas confirmando que está no tamanho certo
             self.qtdRegistros = string[0]
             final = 1
             for i in range(0,QTD_REGISTROS_BLOCO):
@@ -49,10 +49,10 @@ class Bloco (object):
         qtd -= 1
         self.qtdRegistros = str(qtd)
 
-    def exibeBloco(self):
+    def exibeBloco(self): 
         print("Quantidade de registros: " + self.qtdRegistros)
         for i in range(0,QTD_REGISTROS_BLOCO):
-            self.Registros[i].exibeRegistro()
+            self.Registros[i].exibeRegistro() # exibe conteúdo do bloco
             print("\n")
 
     def exibeRegistrosDoBloco(self):
@@ -70,7 +70,7 @@ class Bloco (object):
     def formatarTodosRegistros(self):
         for i in range(0, QTD_REGISTROS_BLOCO):
             registro = Registro.Registro("","","","")
-            self.Registros[i] = registro
+            self.Registros[i] = registro # coloca todos os registros como vazio
 
     def formatarBloco(self):
         self.qtdRegistros = "0"
